@@ -1,3 +1,5 @@
+from temperature import Temperature
+
 class Calorie:
     """
     Represent amount of calories calculated with
@@ -11,4 +13,11 @@ class Calorie:
         self.weight = weight
 
     def calculate(self):
-        pass
+        result = 10 * self.weight + 6.5 * self.height + 5 - self.temperature * 10
+        return result
+
+
+if __name__ == "__main__":
+    temperature = Temperature(country="italy", city="rome").get()
+    calorie = Calorie(weight=70, height=175, age=32, temperature=temperature)
+    print(calorie.calculate())
