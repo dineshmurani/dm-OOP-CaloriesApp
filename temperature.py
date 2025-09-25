@@ -5,6 +5,18 @@ class Temperature:
     """
     Represent a temperature value extracted from the timeanddate.com/weather webpage.
     """
+    headers = {
+        'pragma': "no-cache",
+        'cache-control': 'no-cache',
+        'dnt': '1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+    }
+    base_url = "https://www.timeanddate.com/weather/"
+    yml_path = 'temperature.yaml'
+
     def __init__(self, country, city):
         self.country = country.replace(" ", "-")
         self.city = city.replace(" ", "-")
